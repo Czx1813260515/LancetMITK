@@ -24,7 +24,7 @@ found in the LICENSE file.
 
 QmitkSingleNodeSelectionWidget::QmitkSingleNodeSelectionWidget(QWidget* parent)
   : QmitkAbstractNodeSelectionWidget(parent)
-  , m_AutoSelectNodes(false)
+  , m_AutoSelectNodes(true)
 {
   m_Controls.setupUi(this);
 
@@ -206,6 +206,48 @@ void QmitkSingleNodeSelectionWidget::AutoSelectNodes()
     }
   }
 }
+
+void QmitkSingleNodeSelectionWidget::InitSurfaceSelector(mitk::DataStorage *aDataStorage)
+{
+  this->SetDataStorage(aDataStorage);
+  this->SetNodePredicate(mitk::NodePredicateAnd::New(
+    mitk::TNodePredicateDataType<mitk::Surface>::New(),
+    mitk::NodePredicateNot::New(mitk::NodePredicateOr::New(mitk::NodePredicateProperty::New("helper object"),
+                                                           mitk::NodePredicateProperty::New("hidden object")))));
+
+  this->SetSelectionIsOptional(true);
+  this->SetAutoSelectNewNodes(true);
+  this->SetEmptyInfo(QString("Please select a surface"));
+  this->SetPopUpTitel(QString("Select surface"));
+}
+
+void QmitkSingleNodeSelectionWidget::InitPointSetSelector(mitk::DataStorage *aDataStorage) 
+{
+  this->SetDataStorage(aDataStorage);
+  this->SetNodePredicate(mitk::NodePredicateAnd::New(
+    mitk::TNodePredicateDataType<mitk::PointSet>::New(),
+    mitk::NodePredicateNot::New(mitk::NodePredicateOr::New(mitk::NodePredicateProperty::New("helper object"),
+                                                           mitk::NodePredicateProperty::New("hidden object")))));
+
+  this->SetSelectionIsOptional(true);
+  this->SetAutoSelectNewNodes(true);
+  this->SetEmptyInfo(QString("Please select a point set"));
+  this->SetPopUpTitel(QString("Select point set"));
+}
+
+//void QmitkSingleNodeSelectionWidget::InitImageSelector(mitk::DataStorage *aDataStorage) 
+//{
+//  //this->SetDataStorage(aDataStorage);
+//  //this->SetNodePredicate(mitk::NodePredicateAnd::New(
+//  //  mitk::TNodePredicateDataType<mitk::Image>::New(),
+//  //  mitk::NodePredicateNot::New(mitk::NodePredicateOr::New(mitk::NodePredicateProperty::New("helper object"),
+//  //                                                         mitk::NodePredicateProperty::New("hidden object")))));
+//
+//  //this->SetSelectionIsOptional(true);
+//  //this->SetAutoSelectNewNodes(true);
+//  //this->SetEmptyInfo(QString("Please select a image"));
+//  //this->SetPopUpTitel(QString("Select image"));
+//}
 
 mitk::DataNode::Pointer QmitkSingleNodeSelectionWidget::DetermineAutoSelectNode(const NodeList& ignoreNodes)
 {

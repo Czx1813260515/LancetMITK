@@ -12,7 +12,6 @@ found in the LICENSE file.
 
 #ifndef mitkGizmoInteractor_h
 #define mitkGizmoInteractor_h
-
 #include "mitkGizmo.h"
 
 // MITK includes
@@ -49,7 +48,7 @@ namespace mitk
   //! The interactor fills the undo/redo stack with operations on the modified geometry.
   //!
   //! \sa Gizmo
-  class MITKGIZMO_EXPORT GizmoInteractor : public DataInteractor
+  class MITKGIZMO_EXPORT GizmoInteractor: public DataInteractor
   {
   public:
     mitkClassMacro(GizmoInteractor, DataInteractor);
@@ -64,7 +63,8 @@ namespace mitk
     //! The node that shall be manipulated in function of the user
     //! interaction on the gizmo.
     void SetManipulatedObjectNode(DataNode *node);
-
+//signals:
+    //void customSignal();
   private:
     GizmoInteractor();
     ~GizmoInteractor() override;

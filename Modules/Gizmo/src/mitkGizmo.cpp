@@ -209,7 +209,6 @@ mitk::DataNode::Pointer mitk::Gizmo::AddGizmoToNode(DataNode *node, DataStorage 
     storage->Add(gizmoNode, node);
     gizmo->m_GizmoRemover->UpdateStorageObservation(storage, gizmoNode, node);
   }
-
   return gizmoNode;
 }
 

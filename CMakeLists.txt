@@ -29,7 +29,7 @@ cmake_policy(SET CMP0091 OLD)
 #-----------------------------------------------------------------------------
 # Superbuild Option - Enabled by default
 #-----------------------------------------------------------------------------
-
+option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 option(MITK_USE_SUPERBUILD "Build MITK and the projects it depends on via SuperBuild.cmake." ON)
 
 if(MITK_USE_SUPERBUILD)

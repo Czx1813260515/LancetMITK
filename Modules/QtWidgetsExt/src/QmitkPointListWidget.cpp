@@ -355,10 +355,12 @@ void QmitkPointListWidget::OnBtnAddPoint(bool checked)
         m_DataInteractor->SetEventConfig("PointSetConfig.xml");
         // set the DataNode (which already is added to the DataStorage
         m_DataInteractor->SetDataNode(m_PointSetNode);
+        std::cout << "ToggleClicked true" << std::endl;
       }
     }
     else
     {
+      std::cout << "ToggleClicked false" << std::endl;
       m_PointSetNode->SetDataInteractor(nullptr);
       m_DataInteractor = nullptr;
     }
@@ -370,7 +372,7 @@ void QmitkPointListWidget::OnBtnAddPointManually()
 {
   mitk::PointSet *pointSet = this->GetPointSet();
   QmitkEditPointDialog editPointDialog(this);
-
+  std::cout << "add point click" << std::endl;
   if (this->GetPointSet()->IsEmpty())
   {
       editPointDialog.SetPoint(pointSet, 0, m_TimeStep);

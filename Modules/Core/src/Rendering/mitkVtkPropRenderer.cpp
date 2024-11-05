@@ -639,6 +639,11 @@ bool mitk::VtkPropRenderer::useImmediateModeRendering()
   return glWorkAroundGlobalCount > 1;
 }
 
+vtkRenderer* mitk::VtkPropRenderer::GetVTKRenderer() 
+{
+  return m_TextRenderer;
+}
+
 void mitk::VtkPropRenderer::checkState()
 {
   if (m_MapperID == Standard3D)

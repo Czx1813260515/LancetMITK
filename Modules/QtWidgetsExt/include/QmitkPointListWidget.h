@@ -94,7 +94,7 @@ public:
 public slots:
   void DeactivateInteractor(bool deactivate);
   void EnableEditButton(bool enabled);
-
+  void OnBtnAddPoint(bool checked);
 signals:
   /** @brief signal to inform about the state of the EditPointSetButton, whether an interactor for setting points is
    * active or not */
@@ -104,13 +104,15 @@ signals:
   /// signal to inform about cleared or loaded point sets
   void PointListChanged();
 
+
+  
 protected slots:
   void OnBtnSavePoints();
   void OnBtnLoadPoints();
   void RemoveSelectedPoint();
   void MoveSelectedPointDown();
   void MoveSelectedPointUp();
-  void OnBtnAddPoint(bool checked);
+  
   void OnBtnAddPointManually();
   void OnTimeStepChanged(int timeStep);
 

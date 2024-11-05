@@ -185,7 +185,7 @@ namespace mitk
     MappersMapType GetMappersMap() const;
 
     static bool useImmediateModeRendering();
-
+    vtkRenderer *GetVTKRenderer();
   protected:
     VtkPropRenderer(const char *name = "VtkPropRenderer", vtkRenderWindow *renWin = nullptr);
     ~VtkPropRenderer() override;
