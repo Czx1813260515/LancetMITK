@@ -138,7 +138,7 @@ function(mitk_create_module)
   cmake_parse_arguments(MODULE "${_macro_options}" "${_macro_params}" "${_macro_multiparams}" ${ARGN})
 
   set(MODULE_NAME ${MODULE_UNPARSED_ARGUMENTS})
-
+ 
   # -----------------------------------------------------------------
   # Sanity checks
 

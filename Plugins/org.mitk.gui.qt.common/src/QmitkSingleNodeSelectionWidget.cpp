@@ -24,7 +24,7 @@ found in the LICENSE file.
 
 QmitkSingleNodeSelectionWidget::QmitkSingleNodeSelectionWidget(QWidget* parent)
   : QmitkAbstractNodeSelectionWidget(parent)
-  , m_AutoSelectNodes(false)
+  , m_AutoSelectNodes(true)
 {
   m_Controls.setupUi(this);
 
