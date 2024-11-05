@@ -23,7 +23,12 @@ found in the LICENSE file.
 
 #include <QmitkAbstractNodeSelectionWidget.h>
 #include <QmitkNodeSelectionButton.h>
-
+#include <mitkNodePredicateNot.h>
+#include <mitkNodePredicateDataType.h>
+#include <mitkSurface.h>
+#include <mitkNodePredicateOr.h>
+#include <mitkNodePredicateProperty.h>
+#include <mitkPointSet.h>
 class QmitkAbstractDataStorageModel;
 
 /**
@@ -69,6 +74,10 @@ public Q_SLOTS:
   */
   void SetAutoSelectNewNodes(bool autoSelect);
 
+  void InitSurfaceSelector(mitk::DataStorage *aDataStorage);
+  void InitPointSetSelector(mitk::DataStorage *aDataStorage);
+  //void InitImageSelector(mitk::DataStorage *aDataStorage);
+
 protected Q_SLOTS:
   virtual void OnClearSelection();
 
@@ -83,6 +92,7 @@ protected:
   void OnNodeAddedToStorage(const mitk::DataNode* node) override;
 
   void AutoSelectNodes();
+
 
   /** Helper function that gets a suitable auto selected node from the datastorage that fits to the predicate settings.
    @param ignoreNodes You may pass a list of nodes that must not be choosen as auto selected node. */
