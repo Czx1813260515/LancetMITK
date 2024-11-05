@@ -27,7 +27,7 @@ found in the LICENSE file.
 #include <memory>
 
 #include "MitkGizmoExports.h"
-
+#include <qobject.h>
 namespace mitk
 {
   class InteractionPositionEvent;
@@ -48,8 +48,9 @@ namespace mitk
   //! The interactor fills the undo/redo stack with operations on the modified geometry.
   //!
   //! \sa Gizmo
-  class MITKGIZMO_EXPORT GizmoInteractor: public DataInteractor
+  class MITKGIZMO_EXPORT GizmoInteractor : public QObject, public DataInteractor 
   {
+      Q_OBJECT
   public:
     mitkClassMacro(GizmoInteractor, DataInteractor);
     itkFactorylessNewMacro(Self);
@@ -63,8 +64,8 @@ namespace mitk
     //! The node that shall be manipulated in function of the user
     //! interaction on the gizmo.
     void SetManipulatedObjectNode(DataNode *node);
-//signals:
-    //void customSignal();
+signals:
+    void GizmoTransformChange();
   private:
     GizmoInteractor();
     ~GizmoInteractor() override;

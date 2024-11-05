@@ -233,6 +233,7 @@ void mitk::GizmoInteractor::MoveAlongAxis(StateMachineAction *, InteractionEvent
 
   ApplyTranslationToManipulatedObject(appliedMovement3D);
   RenderingManager::GetInstance()->ForceImmediateUpdateAll();
+  emit GizmoTransformChange();
 }
 
 void mitk::GizmoInteractor::RotateAroundAxis(StateMachineAction *, InteractionEvent *interactionEvent)
@@ -253,6 +254,7 @@ void mitk::GizmoInteractor::RotateAroundAxis(StateMachineAction *, InteractionEv
 
   ApplyRotationToManipulatedObject(vtkMath::DegreesFromRadians(angle_rad));
   RenderingManager::GetInstance()->ForceImmediateUpdateAll();
+  emit GizmoTransformChange();
 }
 
 void mitk::GizmoInteractor::MoveFreely(StateMachineAction *, InteractionEvent *interactionEvent)
@@ -275,6 +277,7 @@ void mitk::GizmoInteractor::MoveFreely(StateMachineAction *, InteractionEvent *i
 
   ApplyTranslationToManipulatedObject(movementITK);
   RenderingManager::GetInstance()->ForceImmediateUpdateAll();
+  emit GizmoTransformChange();
 }
 
 void mitk::GizmoInteractor::ScaleEqually(StateMachineAction *, InteractionEvent *interactionEvent)
@@ -291,6 +294,7 @@ void mitk::GizmoInteractor::ScaleEqually(StateMachineAction *, InteractionEvent 
 
   ApplyEqualScalingToManipulatedObject(relativeSize);
   RenderingManager::GetInstance()->ForceImmediateUpdateAll();
+  emit GizmoTransformChange();
 }
 
 void mitk::GizmoInteractor::ApplyTranslationToManipulatedObject(const Vector3D &translation)
@@ -459,7 +463,7 @@ void mitk::GizmoInteractor::UpdateHandleHighlight()
     // Mark node modified to allow repaint
     node->Modified();
     RenderingManager::GetInstance()->RequestUpdateAll(RenderingManager::REQUEST_UPDATE_ALL);
-
+    emit GizmoTransformChange(); 
     m_HighlightedHandle = m_PickedHandle;
   }
 }

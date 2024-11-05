@@ -5,6 +5,10 @@ set(H_FILES
   include/mitkGizmoInteractor.h
 )
 
+set(MOC_H_FILES
+  include/mitkGizmoInteractor.h
+)
+
 set(CPP_FILES
   mitkGizmo.cpp
   mitkGizmoInteractor.cpp
