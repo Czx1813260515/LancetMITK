@@ -189,7 +189,7 @@ mitk::DataNode::Pointer mitk::Gizmo::AddGizmoToNode(DataNode *node, DataStorage 
 
   interactor->SetGizmoNode(gizmoNode);
   interactor->SetManipulatedObjectNode(node);
-
+  
   //--------------------------------------------------------------
   // Note current opacity for later restore and lower it
   //--------------------------------------------------------------

@@ -3,4 +3,5 @@ MITK_CREATE_MODULE(
     PUBLIC include
     PRIVATE src
   DEPENDS MitkCore
+  PACKAGE_DEPENDS Qt5|Core+Widgets
 )
