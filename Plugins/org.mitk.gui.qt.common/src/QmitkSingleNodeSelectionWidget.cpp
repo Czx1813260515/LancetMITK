@@ -237,16 +237,16 @@ void QmitkSingleNodeSelectionWidget::InitPointSetSelector(mitk::DataStorage *aDa
 
 //void QmitkSingleNodeSelectionWidget::InitImageSelector(mitk::DataStorage *aDataStorage) 
 //{
-//  //this->SetDataStorage(aDataStorage);
-//  //this->SetNodePredicate(mitk::NodePredicateAnd::New(
-//  //  mitk::TNodePredicateDataType<mitk::Image>::New(),
-//  //  mitk::NodePredicateNot::New(mitk::NodePredicateOr::New(mitk::NodePredicateProperty::New("helper object"),
-//  //                                                         mitk::NodePredicateProperty::New("hidden object")))));
+//  /*this->SetDataStorage(aDataStorage);
+//  this->SetNodePredicate(mitk::NodePredicateAnd::New(
+//    mitk::TNodePredicateDataType<mitk::Image>::New(),
+//    mitk::NodePredicateNot::New(mitk::NodePredicateOr::New(mitk::NodePredicateProperty::New("helper object"),
+//                                                           mitk::NodePredicateProperty::New("hidden object")))));
 //
-//  //this->SetSelectionIsOptional(true);
-//  //this->SetAutoSelectNewNodes(true);
-//  //this->SetEmptyInfo(QString("Please select a image"));
-//  //this->SetPopUpTitel(QString("Select image"));
+//  this->SetSelectionIsOptional(true);
+//  this->SetAutoSelectNewNodes(true);
+//  this->SetEmptyInfo(QString("Please select a image"));
+//  this->SetPopUpTitel(QString("Select image"));*/
 //}
 
 mitk::DataNode::Pointer QmitkSingleNodeSelectionWidget::DetermineAutoSelectNode(const NodeList& ignoreNodes)

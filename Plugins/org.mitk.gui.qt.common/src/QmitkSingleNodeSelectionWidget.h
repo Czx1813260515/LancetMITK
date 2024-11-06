@@ -29,6 +29,7 @@ found in the LICENSE file.
 #include <mitkNodePredicateOr.h>
 #include <mitkNodePredicateProperty.h>
 #include <mitkPointSet.h>
+#include <mitkImage.h>
 class QmitkAbstractDataStorageModel;
 
 /**
