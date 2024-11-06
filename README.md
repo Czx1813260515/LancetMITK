@@ -108,3 +108,7 @@ Useful links
 [ubuntu-20.04-build-status]: https://ci.mitk.org/buildStatus/icon?job=MITK%2FContinuous%2FUbuntu+20.04&subject=Ubuntu+20.04
 [macOS-10.15-build-status]: https://ci.mitk.org/buildStatus/icon?job=MITK%2FContinuous%2FmacOS+Catalina&subject=macOS+10.15+Catalina
 [macOS-11-build-status]: https://ci.mitk.org/buildStatus/icon?job=MITK%2FContinuous%2FmacOS+Big+Sur&subject=macOS+11+Big+Sur
+
+1、更改PointsetIntersection 私有函数变为公有，帮助不借助PointSetIntersection的UI，可以做到直接点击自己按钮后，按下shift实现添加Point功能
+2、增加Gizmo Transform后，事件传递功能
+2、增加QmitkSingleNodeSelectionWidget类内函数，InitSurfaceSelector和InitPointSetSelector函数，增加代码复用性，减少每次初始化后手动实现Init函数
